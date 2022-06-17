@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trigger.html</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(function(){
+      //버튼에 클릭 이벤트 발생시 어떤 일이 수행되도록 정의
+      $('button:first').click(function(){
+        console.log($(this).html()+'을 클릭했어요');
+      });
+      //버튼에 트리거 설정-버튼에서 자동으로 클릭 이벤트가 발생하도록
+      $('button:first').trigger('click');
+
+      //트리거 연습
+      //input type="file"에 onchange이벤트 등록
+      //즉 선택한 파일명을 type="text"상자에 설정하기 위해
+      $('input[type=file]').change(function(){
+        console.log('체인지 이벤트 발생:',$(this).val());
+        //C:\fakepath\복사본 한소인10기팀편성.xlsx
+        var filename = $(this).val().split('\\');
+        console.log(filename[filename.length-1]);
+        $('input[type=text]').val(filename[filename.length-1])
+      });
+      //버튼 클릭시 input type="file"이 클릭되도록 트리거 적용
+      $('button:last').click(function(){
+          $('input[type=file]').trigger('click');
+      });
+
+    });
+  </script>
+</head>
+<body>
+  <fieldset>
+    <legend>trigger("이벤트명")</legend>
+    <button>버튼</button>  
+   
+  </fieldset>
+  <fieldset>
+    <legend>트리거 연습</legend>
+    <input type="file" style="display:none"/>     
+    <input type="text">        
+    <button type="button">파일 선택</button>
+  </fieldset>
+</body>
+</html>

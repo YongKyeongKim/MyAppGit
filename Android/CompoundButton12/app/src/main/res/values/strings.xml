@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">CompoundButton12</string>
+    <string-array name="items">
+        <item>자바</item>
+        <item>오라클</item>
+        <item>HTML5</item>
+        <item>CSS3</item>
+        <item>자바스크립트(ES5)</item>
+        <item>JSP/SERVLET</item>
+        <item>SPRING</item>
+        <item>SPRING REST API/SWAGGER</item>
+        <item>MYBATIS</item>
+        <item>JQUERY/AJAX</item>
+        <item>부트스트랩4</item>
+        <item>안드로이드</item>
+    </string-array>
+</resources>

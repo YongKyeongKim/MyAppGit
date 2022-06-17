@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>alert.html</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    
+    <div class="alert-box" id="alert">알림창임</div>
+    <button id="close">닫기</button>
+    <button onclick="showAlert('block')">버튼</button>
+    <button onclick="alertChange('아이디를 입력하세요')">버튼1</button>
+    <button onclick="alertChange('비번을 입력하세요')">버튼2</button>   
+    <!--숙제] 닫기버튼에 닫기 속성주기-->
+    <script>
+
+        function showAlert(parameter){
+            document.getElementById('alert').style.display=parameter;
+        }
+        /*
+        function closeAlert(){
+            document.getElementById('alert').style.display='none';
+        }
+        */
+        function alertChange(msg){
+            document.getElementById('alert').style.display='block';
+            document.getElementById('alert').innerHTML=msg;
+        }
+
+        document.getElementById('close').addEventListener('click',function(){
+            document.getElementById('alert').style.display='none';
+        });
+
+    </script>
+</body>
+</html>

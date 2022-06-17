@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SlideUpDown.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script>
+        $(function(){
+            /*페이지 최초 로드시 내용 숨기기*/
+            $('.content').hide();
+
+            /*제목 클릭시 내용 보이기]*/
+            //1]slideDown()함수 
+            $('.title').click(function(){
+                //$(this).next().slideDown();
+                $(this).next().slideToggle(1500,function(){
+                    $(this).css('background-color','gold');
+                });
+            });
+            
+           //2]toggle()함수 사용
+           /*
+           $('.title').click(function(){
+            $(this).next().toggle(1500);
+           });
+           */
+
+
+
+        });
+    </script>
+</head>
+<body>
+    <fieldset>
+		<legend>slideDown(),slideUp()함수,slideToggle()함수</legend>
+			<h2>제목1</h2>
+			<div class="content">
+				내용입니다1<br/>
+				내용입니다1<br/>
+				내용입니다1<br/>
+			</div>
+			<h2>제목2</h2>
+			<div class="content">
+				내용입니다2<br/>
+				내용입니다2<br/>
+				내용입니다2<br/>
+			</div>
+			<h2>제목3</h2>
+			<div class="content">
+				내용입니다3<br/>
+				내용입니다3<br/>
+				내용입니다3<br/>
+			</div>
+	</fieldset>
+</body>
+</html>

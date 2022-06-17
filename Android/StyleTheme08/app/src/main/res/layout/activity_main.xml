@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#231A1A"
+    tools:context=".MainActivity">
+    <!--안드로이드에서 제공하는 스타일을 위젯에 적용-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="안드로이드 제공 스타일 적용"
+        android:id="@+id/androidStyle"
+        android:textColor="@color/white"
+        style="@style/TextAppearance.AppCompat.Headline"
+         />
+    <!--내가 만든 스타일을 위젯에 적용-->
+    <!-- 테마가 MaterialComponents일때 버튼은 백그라운드가 적용이 안된다
+         즉 MaterialComponents 테마는
+         Button 자체적으로 별도의 background가 적용되어 있어서 바꿀 수 없다
+         아래 두 가지 설정으로 배경색을 설정 할 수 있있다
+        backgroundTint로 색상 설정
+         backgroundTintMode로 add 설정
+         -->
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="내가 만든 스타일 적용1"
+        android:id="@+id/myStyle"
+        android:layout_below="@id/androidStyle"
+        android:backgroundTint="@color/purple_200"
+        android:backgroundTintMode="add"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="내가 만든 스타일 적용2"
+        android:id="@+id/btnMyStyle"
+        android:layout_below="@id/myStyle"
+        android:backgroundTint="@color/purple_500"
+        android:backgroundTintMode="add"
+        style="@style/StyleMadeByMe"
+        />
+
+</RelativeLayout>

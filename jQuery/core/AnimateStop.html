@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimateStop.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script>
+        $(function(){
+            $('#start').click(function(){
+            $('div').animate({width:'+=100',height:'+=100',left:'+=100',backgroundColor:'green'}
+            ,3000,
+            function(){
+                console.log("x좌표:%s,y좌표:%s",$(this).position.left,$(this).position.top);
+                console.log("x좌표:%s,y좌표:%s",$(this).width(),$(this).height());
+            }
+            )
+
+            })
+
+            $('#stop').click(function(){
+                $('#div').stop();
+            });
+      
+            $('#back').click(function(){
+               
+            });
+
+        });
+    </script>
+    <style>
+        *{
+            padding:0;
+            margin:0
+        }
+        div{
+            width:50px;
+            height: 50px;
+            background-color: tomato;
+            position: relative;
+            left:0;
+            top:0
+        }
+    </style>
+</head>
+<body>
+    <div id="div"></div>
+	<button id="start">Start</button>
+	<button id="stop">Stop</button>
+	<button id="back">Back</button>
+</body>
+</html>

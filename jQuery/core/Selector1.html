@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
+    <script>
+        $(function(){
+            console.log('a태그의 수:',$('a').length);
+            console.log('tr태그의 수:',$('tr').length);
+            
+            //*는 '포함된'
+            $('a[href*=naver]').css('color','red').css('fontSize','1.8em');
+            //$는 '끝나는' 
+            $('a[href$=net]').css('color','green').css('fontSize','0.8em'); 
+            //^는 '시작하는'
+            $('a[href^=www]').css('color','#898883').html('NATE');
+            //:(수도클래스)는 '선택한것들 중에서'/ contains('문자열'):시작태그와 종료태그 사이의 내용으로 선택
+            $('a:contains(이)').css('backgroundColor','black');
+            //:even, :odd / index[0]부터 시작.
+            $('table tr:even').css('background-color','red');
+            $('table tr:odd').css('background-color','green');
+            //table 하위 태그 tr중에 첫번째 자식, 테이블의 첫번째 tr만 선택됨
+            //$('table tr:first-child').css('background-color','white');
+            //아래는 eq(인덱스)로 적용
+            $('table tr:eq(0)').css('background-color','white');
+            $('table tr:eq(5)').css('background-color','white');
+        });
+    </script>
+</head>
+<body>
+   <fieldset>
+		<legend>선택자 첫번째</legend>
+		<ul style="list-style-type: decimal;">
+			<li><a href="http://www.naver.com">네이버</a></li>
+			<li><a href="http://www.daum.net">다음</a></li>
+			<li><a href="www.nate.com">네이트</a></li>
+		</ul>			
+	
+		<table cellspacing="1" bgcolor="gray" width="60%">
+			<tr bgcolor="white" >
+				<th>번호</th><th>제목</th><th>작성자</th><th>작성일</th>
+			</tr>
+			<tr bgcolor="white" >
+				<td>1</td><td>제목1</td><td>작성자1</td><td>2013-9-12</td>
+			</tr>
+			<tr bgcolor="white" >
+				<td>2</td><td>제목2</td><td>작성자2</td><td>2013-9-12</td>
+			</tr>
+			<tr bgcolor="white">
+				<td>3</td><td>제목3</td><td>작성자3</td><td>2013-9-12</td>
+			</tr>
+			<tr bgcolor="white">
+				<td>4</td><td>제목4</td><td>작성자4</td><td>2013-9-12</td>
+			</tr>						
+		</table>
+		<br/>
+		<table cellspacing="1" bgcolor="gray" width="60%">
+			<tr bgcolor="white" >
+				<th>번호</th><th>제목</th><th>작성자</th><th>작성일</th>
+			</tr>
+			<tr bgcolor="white" >
+				<td>1</td><td>제목1</td><td>작성자1</td><td>2013-9-12</td>
+			</tr>
+			<tr bgcolor="white" >
+				<td>2</td><td>제목2</td><td>작성자2</td><td>2013-9-12</td>
+			</tr>
+			<tr bgcolor="white">
+				<td>3</td><td>제목3</td><td>작성자3</td><td>2013-9-12</td>
+			</tr>
+			<tr bgcolor="white">
+				<td>4</td><td>제목4</td><td>작성자4</td><td>2013-9-12</td>
+			</tr>			
+		</table>
+	</fieldset>
+</body>
+</html>

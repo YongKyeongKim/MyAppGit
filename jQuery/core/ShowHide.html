@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShowHide.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script>
+        $(function(){
+            /*페이지 최초 로드시 내용 숨기기
+            $('.content').hide();
+
+            //제목 클릭시 내용 보이기]
+            //1]show()함수 사용
+            $('.title').click(function(){
+                //$(this).next().show();
+                $(this).next().show(1500,function(){
+                    $(this).css('background-color','gold');
+                });
+            });
+            
+           //2]toggle()함수 사용
+           /*
+           $('.title').click(function(){
+            $(this).next().toggle(1500);
+           });
+           */
+           $( "#accordion" ).accordion({
+                collapsible: true
+           });
+
+
+        });
+    </script>
+</head>
+<body>
+    <fieldset>
+		<legend>show(),hide()함수</legend>
+		<div id="accordion"><!-- 제이쿼리 UI적용시 추가DIV -->
+			<div class="title"><h2>제목1</h2></div>
+			<div class="content">
+				내용입니다1<br/>
+				내용입니다1<br/>
+				내용입니다1<br/>
+			</div>
+			<div class="title"><h2>제목2</h2></div>
+			<div class="content">
+				내용입니다2<br/>
+				내용입니다2<br/>
+				내용입니다2<br/>
+			</div>
+			<div class="title"><h2>제목3</h2></div>
+			<div class="content">
+				내용입니다3<br/>
+				내용입니다3<br/>
+				내용입니다3<br/>
+			</div>
+		</div>
+	</fieldset>
+</body>
+</html>

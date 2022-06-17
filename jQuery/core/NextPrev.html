@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextPrev.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
+    <script>
+        $(function(){
+            $('#next').click(function(){
+                $('#third').next().css({color:'red',fontSize:'1.8em'});
+                //var third = document.querySelector('#third');
+               // var nextSibling = third.nextElementSibling();
+               // console.log(nextSibling);
+               // nextSibling.style.
+               console.log('%O',$('next').next());
+            });
+            $('#prev').click(function(){
+                //$('#third').prev().css({color:'red',fontSize:'1.8em'});
+                document.querySelector('#third').previousElementSibling.style="color:red;font-size:1.8em";
+            });
+            
+            var index=1;
+            $('button:last').click(function(){
+                $('li').next().css({color:'red',fontSize:'1.8em'});
+                index++
+            });
+            });
+
+
+
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>next() 및 prev()함수</legend>
+        <button id="next">다음</button>
+        <button id="prev">이전</button>
+        <button id="continue">계속</button>
+       
+        <ul>
+         <li>JAVA</li>
+         <li>JSP</li>
+         <li id="third">FRAMEWORK</li>
+         <li>JQUERY1</li>
+         <li>JQUERY2</li>
+         <li>JQUERY3</li>		   
+        </ul>			
+   </fieldset>
+</body>
+</html>

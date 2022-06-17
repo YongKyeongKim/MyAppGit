@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
+    <script>
+        $(function(){
+            /*
+            $('tr').slice(1).mouseover(function(){
+                $(this).addClass('bg');
+            }).mouseout(function(){
+                $(this).removeClass('bg');
+            });
+            */
+           //hover('over햇을때','out했을때')
+           $('tr').slice(1).hover(function(){
+             $(this).addClass('bg');
+           },function(){
+             $(this).removeClass('bg');
+           });
+           /*
+           $('img').hover(function(){
+             this.src="../images/2.jpg";
+           },function(){
+            this.src="../images/1.jpg";
+           });
+           */
+           //가로폭은 2배, 세로폭은 1.5배 
+           var width = parseInt($('img').get(0).style.width);
+           var height = parseInt($('img').get(0).style.height);
+           $('img').hover(function(){
+             this.style.width=width*2+'px'
+             this.style.height=height*1.5+'px'
+           },function(){
+            this.style.width=width+'px'
+            this.style.height=height+'px'           
+           });          
+           });
+    </script>
+    <style>
+        .bg{
+            background-color: tomato;
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+		<legend>hover(콜백함수1,콜백함수2)</legend>
+		<table cellspacing="1" bgcolor="gray" width="60%">
+			<tr bgcolor="white">
+				<th>번호</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>작성일</th>
+			</tr>
+			<tr bgcolor="white">
+				<td>1</td>
+				<td>제목1</td>
+				<td>작성자1</td>
+				<td>2013-9-12</td>
+			</tr>
+			<tr bgcolor="white">
+				<td>2</td>
+				<td>제목2</td>
+				<td>작성자2</td>
+				<td>2013-9-12</td>
+			</tr>
+			<tr bgcolor="white">
+				<td>3</td>
+				<td>제목3</td>
+				<td>작성자3</td>
+				<td>2013-9-12</td>
+			</tr>
+			<tr bgcolor="white">
+				<td>4</td>
+				<td>제목4</td>
+				<td>작성자4</td>
+				<td>2013-9-12</td>
+			</tr>
+		</table>
+		<hr />
+		<img src="../images/1.jpg" alt="이미지"
+			style="width:100px; height:100px" />
+	</fieldset>
+</body>
+</html>

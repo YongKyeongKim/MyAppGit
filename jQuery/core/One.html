@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
+    <script>
+        $(function(){
+            $('button:first').one('click',function(){
+                console.log('한번실행')
+            });
+            $('button:last').on('click',function(){
+                console.log('클릭할때마다 실행')
+            });
+            
+        });
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>one('이벤트명',콜백함수)</legend>
+        <button>한번만 실행</button>
+        <button>여러번 실행</button>
+    </fieldset>
+</body>
+</html>

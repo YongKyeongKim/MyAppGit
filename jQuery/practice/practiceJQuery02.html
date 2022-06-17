@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practiceJQuery01.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>   
+    <script>
+      //span 실습입니다. 텍스트를 'color':'red','font-size':'1.8em'로 변경하기. jquery, js 사용. 
+      $(function(){
+      document.querySelector("input[type=button]:last-child").onclick = function(){
+        var version = $('#version').val();
+        if(version.toUpperCase()=='JS'){
+            var span=document.querySelector('span');
+            span.style.color='red';
+            span.style.fontSize='1.8em';
+        }
+        else {
+            var span=$('span');
+            span.css({'color':'green','font-size':'1.8em'});
+        }
+      };
+      });
+    </script>
+</head>
+<body>
+    <fieldset>
+		<legend>get(인덱스)함수</legend>
+		<input type="text" value="텍스트값" id="txt"/>
+	    <input type="button" value="확인" />
+	    <ul style="list-style-type: decimal;">
+		    <li><a href="https://www.naver.com" id="naver" >네이버</a></li>
+		    <li><a href="https://www.daum.net"  >다음</a></li>
+		    <li><a href="https://www.nate.com"  >네이트</a></li>
+	    </ul>
+	    <h2>실습하기</h2>
+	    <select id="version">
+	    	<option value="js">자바스크립트버전</option>
+	    	<option value="jquery">제이쿼리버전</option>
+	    </select>
+	    <span>실습입니다</span>
+	    <input type='button' value="텍스트변경하기"/>
+    </fieldset>
+</body>
+</html>

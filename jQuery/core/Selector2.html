@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
+    <script>
+        $(function(){
+            //first & last
+            console.log('첫번째 자식인 UL태그의 수:',$('ul:first-child').length);
+			//$('ul:eq(0) li:even').css('color','red');
+			//$('ul:eq(0) li:odd').css('color','green');
+			$('ul:first li:even').css('color','red');
+			$('ul:first li:odd').css('color','green');
+			//$('ul:last-child li:first-child').css('backgroundColor','yellow');
+			//$('ul:last li:last').css('backgroundColor','blue');
+			//문자열의 변수처리 
+			$('ul:last-child li:eq(0)').css('backgroundColor','yellow');
+			//li:eq(6)에서 6을 변수처리
+			var size = $('ul:last li').length;
+			$('ul:last li:eq('+(size-1)+')').css('backgroundColor','blue');//항상 마지막이 css 적용된다.
+
+        });              
+    </script>
+</head>
+<body>
+    <fieldset>
+		<legend>선택자 두번째</legend>
+		<!-- li태그중 짝수번째는 글자색을 RED 홀수번째는 GREEN-->
+		<ul>
+			<li>가</li>
+			<li>나</li>
+			<li>다</li>
+			<li>라</li>
+		</ul>
+		<!--  첫번째 li의 백그라운드 YELLOW 마지막번쩨 li는 blue-->
+		<ul>
+			<li>A</li>
+			<li>B</li>
+			<li>C</li>
+			<li>D</li>
+			<li>E</li>
+			<li>F</li>
+		</ul>
+	</fieldset>
+</body>
+</html>

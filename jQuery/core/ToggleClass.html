@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToggleClass.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
+    <script>
+        $(function(){
+            $('button').click(function(){
+                //$('div').toggleClass('invisible');
+                //제이쿼리의 removeClass()/addClass()를 하나의 함수로 구현한 것입니다. 
+                var toggle=false;
+                !toggle ? $('div').addClass('invisible') : $('div').removeClass('invisible');
+                toggle =! toggle;
+            });
+            
+        });
+    </script>
+    <style>
+        div{
+            width:100px;
+            height:100px;
+            background-color: green;
+        }
+        .invisible{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend>toggleClass('클래스명')</legend>
+        <div></div>
+        <button>안보이기</button>
+    </fieldset>
+</body>
+</html>

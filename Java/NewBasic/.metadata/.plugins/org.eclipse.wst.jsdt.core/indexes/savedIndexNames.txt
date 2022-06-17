@@ -1,0 +1,3 @@
+INDEX VERSION 1.4+D:\KYG\Workspace\Java\NewBasic\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3869502199.index
+2771190791.index

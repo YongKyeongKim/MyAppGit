@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
+    <script>
+        $(function(){
+            $('button').click(function(){
+            console.log($('.third').parent());//S.fn.init(2) [div.div, ul, prevObject: S.fn.init(2)]
+            //모든 부모에 배경색 지정
+            //$('.third').parent().css('background-color','yellow');
+            //부모중 div만 노란색 지정
+            //$('.third').parent(':first').css('background-color','yellow');
+            //$('.third').parent('.div').css('background-color','yellow');
+            //console.log($('.third').parent('.div').css('background-color','yellow').prev().html());
+            
+            });
+        $('tr').slice(1).hover(function(){
+            $(this).css({backgroundColor:'yellow',cursor:'pointer'})
+        },function(){
+            $(this).css({backgroundColor:'white'})
+        });
+
+        $('tr').slice(1).click(function(){
+            console.log($(this).get(0).title);
+            $('input[type=text]').val($(this).children('eq(1)').html());
+        });
+
+        $('')
+
+
+        });
+
+
+
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>parent 함수</legend>
+        <button>부모얻기</button>
+
+        <div class="div">
+            <div>자식1</div>
+            <div>자식2</div>           
+            <div class="third">자식3</div>
+        </div>
+       
+        <ul>
+         <li>JAVA</li>
+         <li>JSP</li>
+         <li class="third">FRAMEWORK</li>
+         <li>JQUERY1</li>
+         <li>JQUERY2</li>
+         <li>JQUERY3</li>		   
+        </ul>	
+        
+            <legend>형제요소찾기연습</legend>
+        <input type="text">
+        <input class=""
+
+            <table cellspacing="1" bgcolor="gray" width="60%">
+                <tr bgcolor="white">
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>작성일</th>
+                    <th>삭제</th>
+                </tr>
+                <tr bgcolor="white" title="1">
+                    <td>1</td>
+                    <td>제목1</td>
+                    <td>작성자1</td>
+                    <td>2013-9-12</td>
+                    <td><insert type="button" class="delete" value="삭제">삭제</insert></td>
+                </tr>
+                <tr bgcolor="white" title="2">
+                    <td>2</td>
+                    <td>제목2</td>
+                    <td>작성자2</td>
+                    <td>2013-9-12</td>
+                    <td><insert type="button" class="delete" value="삭제">삭제</insert></td>
+                </tr>
+                <tr bgcolor="white" title="3">
+                    <td>3</td>
+                    <td>제목3</td>
+                    <td>작성자3</td>
+                    <td>2013-9-12</td>
+                    <td><insert type="button" class="delete" value="삭제">삭제</insert></td>
+                </tr>
+                <tr bgcolor="white" title="4">
+                    <td>4</td>
+                    <td>제목4</td>
+                    <td>작성자4</td>
+                    <td>2013-9-12</td>
+                    <td><insert type="button" class="delete" value="삭제">삭제</insert></td>
+                </tr>
+            </table>
+            <hr />
+        </fieldset>
+</body>
+</html>

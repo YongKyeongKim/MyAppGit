@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter.html</title>
+    <style>
+        .bg{
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .border{
+            border:2px red solid;
+        }
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
+    <script>
+        $(function(){
+            $('a').addClass('bg').addClass('link')
+            .filter('[href*=nate]')
+            .addClass('border')
+            .end()
+            .filter(':eq(2)')
+            .removeClass('bg').css('font-size','1.8em');
+        });
+    </script>
+</head>
+<body>
+    <fieldset>
+		<legend>$(선택자).filter("선택된 DOM객체중 가져올 객체 선택자")</legend>
+		<a href="www.naver.com">네이버</a>
+		<a href="www.nate.com" >네이트</a>
+		<a href="www.daum.net" >다음</a>
+	</fieldset>
+</body>
+</html>

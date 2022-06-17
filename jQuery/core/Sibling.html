@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siblings.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
+    <script>
+        $(function(){
+            //siblings():모든 형제를 찾는다.
+            //next()/prev():형제 요소 하나를 반환하는
+            //console.log($('p.selected').siblings());
+            //$('div').siblings('.selected').css('background-color','yellow')
+            $('p').siblings().each(function(i,item){
+                //ITEM은 자바스크립트 객체이다. 
+                //console.log(item.innerHTML);
+                if(item.nodeName==='DIV')
+                    console.log(item.firstElementChild.innerHTML);
+                else 
+                    console.log(item.innerHTML);
+            });
+        });
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>siblings([선택자])</legend>
+        <div>
+            <span>Hello</span>
+        </div>
+        <p class="selected">Hello Again</p>
+        <p>And Again</p>
+    </fieldset>
+</body>
+</html>

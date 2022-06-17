@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attr.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
+    <script>
+        $(function(){
+            //속성읽기 
+            $('#add').click(function(){
+                //attr()함수 사용 
+                /*
+                $('#div').attr('title','여기를 클릭하세요')
+                .attr('class','bg')
+                .attr('style','width:100px;height:100px;text-align:center;line-height:100px')
+                .on('click',function(){
+                    $(this).html('JQUERY')
+                */
+                //JSON 데이타 형식 
+                $('#div').attr({title:'여기를 클릭하세요','class':'bg','style':'width:100px;height:100px;text-align:center;line-height:100px'}).click();
+                });
+                //prop()함수 사용 
+                $('#div').prop({title:'여기를 클릭하세요','class':'bg','style':'width:100px;height:100px;text-align:center;line-height:100px'}).click();
+                });
+                
+
+    </script>
+    <style>
+        .bg{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+		<legend >attr()함수 및 removeAttr(),prop()함수</legend>
+		<button id="add">속성추가</button>
+		<button id="read">속성읽기</button>
+		<button id="remove">속성제거</button>
+		<div id="div" >DIV태그</div>
+		
+		<button id="1">1번 이미지</button>
+		<button id="2">2번 이미지</button>
+		<button id="3">3번 이미지</button>
+		<button id="4">4번 이미지</button>
+		<br />
+		<img src="#" alt="이미지" /><br />
+		<a>href속성을 미 지정한 A태그</a><br />
+		<input type="text"	size="30" />
+		<input value="확인" type="button" id="button" />
+		
+		<hr />
+		<input type='checkbox' />체크박스
+		<a href="#" id="atag">A태그</a>
+		<input type="button" id="chkbtn" value="attr및 prop으로 체크 설정하기" />
+	</fieldset>
+</body>
+</html>

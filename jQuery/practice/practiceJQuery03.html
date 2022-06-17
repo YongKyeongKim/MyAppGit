@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practiceJQuery01.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>   
+    <script>
+      //트리거: a를 클릭했을 경우 b가 실행이 되도록 triggering. 
+      $(function(){
+          $('input[type=file]').change(function(){
+            var filename = $(this).val().split('\\');
+            $('input[type=text]').val(filename[filename.length-1]);
+          });
+
+          $('button:last').click(function(){
+            $('input[type=file]').trigger('click');
+          });
+      });
+    </script>
+</head>
+<body>
+  <fieldset>
+    <legend>trigger("이벤트명")</legend>
+    <button>버튼</button>
+</fieldset>
+<fieldset>
+    <legend>트리거 연습</legend>
+    <input type="file" style="display:none"/> 
+    <input type="text">
+    <button type="button">파일선택</button>
+</fieldset>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--공통메뉴 사용-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@+id/menuitem_red" android:title="RED"/>
+<item android:id="@+id/menuitem_green" android:title="GREEN"/>
+<item android:id="@+id/menuitem_blue" android:title="BLUE"/>
+</menu>

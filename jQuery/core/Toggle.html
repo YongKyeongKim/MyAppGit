@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
+    <script>
+        $(function(){
+            $('button:eq(0)').on('click',function(){
+               //$('#div').toggle(); //애니메이션 효과가 없다.
+               var button = $(this); 
+               $('#div').toggle(2000,
+                 function(){
+                     var text = button.html();
+                     console.log('토글링이 완료되었습니다',text);
+                     button.html(text==='안보이기'?'보이기':'안보이기');
+                 }
+               ); // 3초 애니메이션 설정, function은 애니메이션 완료후 실행됨. 
+               
+               /*
+               var div = document.querySelector('#div');
+               if(div.style.display===''){
+                   div.style.display='none';
+               }
+               else{
+                   div.style.display='';
+               }
+               */
+            });
+
+            $('button:last').click(function(){
+                $('.div').toggle(2000);
+            });
+        });
+    </script>  
+    <style>
+    div {
+        width: 100px;
+        height: 100px;
+        background-color: green;
+        border: 1px red solid
+    }
+    </style>
+</head>
+<body>
+    <fieldset>
+		<legend>toggle([Duration][,콜백함수])함수 첫번째: 토글링을 걸을 요소가 하나</legend>
+		<div id="div"></div>
+		<button>안보이기</button>
+	</fieldset>
+	<fieldset>
+		<legend>toggle([Duration][,콜백함수])함수 두번째: 토글링을 걸을 요소가 두개</legend>
+		<!--
+            전제조건: 무조건 하나는 display속성이 none
+            그리고, 두 요소의 클래스명이 동일해야함. 
+        -->
+        <div class="div" style="background-color: red"></div>
+		<div class="div" style="display: none; background-color: green"></div>
+		<button>토글링</button>
+	</fieldset>
+</body>
+</html>

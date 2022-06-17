@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- 스프링의 JDBC사용(커넥션 풀 미 사용) -->
+	<!-- 
+	
+	This class(DriverManagerDataSource) is not an actual connection pool; 
+	it does not actuallypool Connections
+	 -->
+	<!-- DataSource using Spring JDBC -->	
+	<bean id="dataSourceByJDBC" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<property name="username" value="SPRING"/>
+		<property name="password" value="SPRING"/>
+	</bean>
+	<!-- 스프링의 JNDI사용(커넥션 풀 사용) -->
+	<!-- DataSource using Spring JNDI -->
+	<bean id="dataSourceByJNDI" class="org.springframework.jndi.JndiObjectFactoryBean">
+	    <!-- value속성:server.xml이나 context.xml의 <Context>태그 안의 <ResourceLink global="" 
+			name="" type="">태그의 name속성에 지정한 이름 -->
+		<property name="jndiName" value="spring"/>
+		<!-- 아래 속성(resourceRef)을 사용하지 않은 경우(디폴트 false) 
+		     위의 jndiName속성의 값으로 해당 WAS서버의 
+			 루트 디렉토리까지 적어줘야 한다 예]java:/comp/env/spring -->
+		<property name="resourceRef" value="true"/>
+	</bean>
+	<!--  Hikari CP -->
+	<!-- https://github.com/brettwooldridge/HikariCP -->
+	<!-- 
+	JDK 11이상
+	<dependency>
+	   <groupId>com.zaxxer</groupId>
+	   <artifactId>HikariCP</artifactId>
+	   <version>5.0.1</version>
+	</dependency>	
+	 -->
+	  <!-- 2. 설정을 위한 빈 등록 :HikariDataSource에 주입용 -->	
+	
+	 <bean id="hikariConfig" 
+	 p:driverClassName="oracle.jdbc.OracleDriver" 
+	 p:jdbcUrl="jdbc:oracle:thin:@localhost:1521:xe"
+	 p:username="SPRING"
+	 p:password="SPRING"
+	 class="com.zaxxer.hikari.HikariConfig"/>
+	
+	 <!-- 3. DataSource를 주입 받기 위한 빈 등록 -->
+	
+	 <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
+	 	<constructor-arg ref="hikariConfig"/>
+	 </bean>
+	 
+	 <!-- 마이바티스 지원을 위한 빈(mybatis-spring-2.x.jar 등록) -->
+	<!-- 1]SqlSessionFactory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- Hikari 커넥션 풀로 변경 -->
+		<property name="dataSource" ref="dataSource"/>
+		<!-- 마이바티스 환경설정 파일 위치 설정 -->
+		<property name="configLocation" value="classpath:onememo/mybatis/configuration.xml"/>		
+	</bean>
+	<!-- 2]SqlSessionTemplate -->
+	<bean id="template" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory"/>
+	</bean>
+	<!-- 트랜잭션처리 관련 빈 등록 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	<bean class="org.springframework.transaction.support.TransactionTemplate">
+		<property name="transactionManager" ref="transactionManager"/>
+	</bean>
+</beans>

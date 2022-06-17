@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bind.html</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
+    <script>
+        $(function(){
+            //자식인 div중 첫번째 
+            console.log($('div:first-child').html());
+            console.log($('div:first').html());
+            console.log($('div:eq(0)').html());
+            console.log($('div:last-child'.length));//2
+            $('div:last-child').css('backgroundColor','yellow');
+            //html():get the html contents of the first element in the set of matched elements.>모두적용원할경우 each함수적용
+            console.log($('div:last-child').html());//네이트
+            $('div:last-child').each(function(){
+                //(this)는 꺼내온것들을 의미 
+                console.log($(this).html());
+            });
+            //메모리가 생성된 순서대로 인덱스가 부여된다. 
+            $('button').click(function(){
+                //(this)는 클릭한 버튼 
+                //console.log('클릭발생:',$(this).html());
+                //console.log('클릭발생:',$(this).html("<strong>"+$(this).html()+"버튼이 클릭 되었어요</strong>"));
+            });
+            /*bind로 이을 수 있다. 
+            $('div:eq(1)>div').bind("mouseover",function(){
+                $(this).css({'backgroundColor':'black','color':'white'});
+            }).bind('mouseout',function(){
+                $(this).css({'backgroundColor':'white','color':'black'});
+            });
+            */
+            $('div:eq(1)>div').mouseover(function(){
+                $(this).css({'backgroundColor':'black','color':'white'});
+            }).mouseout(function(){
+                $(this).css({'backgroundColor':'white','color':'black'});
+            });
+            //this:이벤트가발생한자바스크립트객체, $(this):이벤트가발생한제이쿼리객체
+            $('div:eq(1) div').bind('click',function(){
+                console.log("$(this).title:",$(this).title);
+                console.log("this.title",this.title);
+                console.log($(this).get(0).title);
+                switch(this.id){
+                    case "naver":location.href="http://www.naver.com"; break;
+                    case "daum":location.href="http://www.daum.net"; break;        
+                    default:location.href="http://www.nate.com";            
+                }
+            });
+            //h2요소에 클릭 이벤트 바인딩 
+            $('div:last h2').bind('click',function(){
+                console.log($(this).html());
+            });
+            $('input[type=button]').click(function(){
+                $('div:last h2').unbind('click');
+            });
+        });
+    </script>
+</head>
+<body>
+    <fieldset>
+		<legend>bind("이벤트명",콜백함수)</legend>
+		<div>div1</div>
+		<button type="button">클릭1</button>
+		<button type="button">클릭2</button>
+		<button type="button">클릭3</button>
+		<div>
+			<div id="naver" title="네이버">네이버</div>
+			<div id="daum" title="다음">다음</div>
+			<div id="nate" title="네이트">네이트</div>
+		</div>
+		<div>
+			<h2 style="background-color: red">unbind테스트</h2>
+			<input type="button" value="이벤트해제" />
+		</div>
+	</fieldset>
+</body>
+</html>
